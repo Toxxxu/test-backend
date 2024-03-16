@@ -1,6 +1,7 @@
 ## Description
 
-How does this app works?
+How does this app works? Before you run an application please go to https://www.mongodb.com/ and create free database then create file 
+`.env` and add the database like in file `.env.example` or use command `cp .env.example .env` to create new .env file and paste the database link there.
 
 ## Installation
 
