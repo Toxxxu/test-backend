@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import { createSubscribtion } from "../services/user.service";
+import { createSubscribtion, findEmails } from "../services/user.service";
 
 export const subscribe = async (req: Request, res: Response, next: NextFunction) => {
   const { email } = req.body;
@@ -10,6 +10,15 @@ export const subscribe = async (req: Request, res: Response, next: NextFunction)
   try {
     const subscription = await createSubscribtion(email);
     res.status(201).json(subscription);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export const getEmails = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const emailExists = await findEmails();
+    return res.status(200).json(emailExists);
   } catch (error) {
     next(error);
   }

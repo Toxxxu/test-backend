@@ -9,3 +9,8 @@ export const createSubscribtion = async (email: string) => {
   await subscription.save();
   return subscription;
 };
+
+export const findEmails = async () => {
+  const emailExists = await Subscription.find();
+  return emailExists;
+}
